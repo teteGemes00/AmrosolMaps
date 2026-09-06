@@ -18,10 +18,7 @@ import androidx.compose.foundation.layout.size
 import androidx.compose.foundation.layout.width
 import androidx.compose.foundation.shape.CircleShape
 import androidx.compose.foundation.shape.RoundedCornerShape
-import androidx.compose.material.icons.Icons
-import androidx.compose.material.icons.filled.PinDrop
-import androidx.compose.material.icons.filled.Refresh
-import androidx.compose.material.icons.filled.Stop
+import com.fantopo.metacrtl.feature.map.ui.MapIcons
 import androidx.compose.material3.ButtonDefaults
 import androidx.compose.material3.Card
 import androidx.compose.material3.CardDefaults
@@ -79,7 +76,7 @@ fun FloatingOverlayWidget(
                     contentAlignment = Alignment.Center
                 ) {
                     Icon(
-                        imageVector = Icons.Default.PinDrop,
+                        imageVector = MapIcons.PinDrop,
                         contentDescription = "Fantopo Logo",
                         tint = Color(0xFF00C853),
                         modifier = Modifier.size(20.dp)
@@ -119,7 +116,7 @@ fun FloatingOverlayWidget(
                         modifier = Modifier.width(130.dp)
                     ) {
                         Icon(
-                            imageVector = Icons.Default.Refresh,
+                            imageVector = MapIcons.Refresh,
                             contentDescription = "Refresh Location",
                             modifier = Modifier.size(18.dp)
                         )
@@ -140,7 +137,7 @@ fun FloatingOverlayWidget(
                         modifier = Modifier.width(130.dp)
                     ) {
                         Icon(
-                            imageVector = Icons.Default.Stop,
+                            imageVector = MapIcons.Stop,
                             contentDescription = "Stop Simulation",
                             modifier = Modifier.size(18.dp)
                         )

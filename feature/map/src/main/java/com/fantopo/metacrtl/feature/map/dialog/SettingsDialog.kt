@@ -3,11 +3,10 @@ package com.fantopo.metacrtl.feature.map.dialog
 import androidx.compose.animation.AnimatedVisibility
 import androidx.compose.foundation.background
 import androidx.compose.foundation.clickable
+import androidx.compose.foundation.horizontalScroll
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Column
-import androidx.compose.foundation.layout.ExperimentalLayoutApi
-import androidx.compose.foundation.layout.FlowRow
 import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.Spacer
 import androidx.compose.foundation.layout.fillMaxHeight
@@ -20,18 +19,6 @@ import androidx.compose.foundation.rememberScrollState
 import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.foundation.text.KeyboardOptions
 import androidx.compose.foundation.verticalScroll
-import androidx.compose.material.icons.Icons
-import androidx.compose.material.icons.filled.Check
-import androidx.compose.material.icons.filled.CompassCalibration
-import androidx.compose.material.icons.filled.Layers
-import androidx.compose.material.icons.filled.Map
-import androidx.compose.material.icons.filled.Navigation
-import androidx.compose.material.icons.filled.PictureInPicture
-import androidx.compose.material.icons.filled.Refresh
-import androidx.compose.material.icons.filled.Settings
-import androidx.compose.material.icons.filled.Speed
-import androidx.compose.material.icons.filled.Terrain
-import androidx.compose.material.icons.filled.Timer
 import androidx.compose.material3.Card
 import androidx.compose.material3.CardDefaults
 import androidx.compose.material3.Divider
@@ -62,10 +49,11 @@ import androidx.compose.ui.unit.sp
 import androidx.compose.ui.window.Dialog
 import com.fantopo.metacrtl.core.model.AppSettings
 import com.fantopo.metacrtl.core.model.MapStyleMode
+import com.fantopo.metacrtl.feature.map.ui.MapIcons
 import com.fantopo.metacrtl.feature.map.ui.NoBorderTextField
 import java.util.Locale
 
-@OptIn(ExperimentalLayoutApi::class, ExperimentalMaterial3Api::class)
+@OptIn(ExperimentalMaterial3Api::class)
 @Composable
 fun SettingsDialog(
     settings: AppSettings,
@@ -143,7 +131,7 @@ fun SettingsDialog(
                 ) {
                     Row(verticalAlignment = Alignment.CenterVertically) {
                         Icon(
-                            imageVector = Icons.Default.Settings,
+                            imageVector = MapIcons.Settings,
                             contentDescription = null,
                             tint = MaterialTheme.colorScheme.primary,
                             modifier = Modifier.size(24.dp)
@@ -172,7 +160,7 @@ fun SettingsDialog(
                     SettingToggleRow(
                         title = "Floating Mode",
                         description = "Shows logo overlay with downward expand for refresh & stop",
-                        icon = Icons.Default.PictureInPicture,
+                        icon = MapIcons.PictureInPicture,
                         checked = isFloating,
                         onCheckedChange = {
                             isFloating = it
@@ -186,7 +174,7 @@ fun SettingsDialog(
                     SettingToggleRow(
                         title = "Fused Mode",
                         description = "Simulate mock fused location provider integration",
-                        icon = Icons.Default.Navigation,
+                        icon = MapIcons.Navigation,
                         checked = isFused,
                         onCheckedChange = {
                             isFused = it
@@ -200,7 +188,7 @@ fun SettingsDialog(
                     SettingToggleRow(
                         title = "Random Coordinate",
                         description = "Realistic subtle lat/long random offset (1-5m)",
-                        icon = Icons.Default.Explore,
+                        icon = MapIcons.Explore,
                         checked = isRandomCoord,
                         onCheckedChange = {
                             isRandomCoord = it
@@ -214,7 +202,7 @@ fun SettingsDialog(
                     SettingToggleRow(
                         title = "Random Accuracy",
                         description = "Range 0 to 5 meters (default min/max 5m)",
-                        icon = Icons.Default.CompassCalibration,
+                        icon = MapIcons.CompassCalibration,
                         checked = isRandomAccuracy,
                         onCheckedChange = {
                             isRandomAccuracy = it
@@ -250,7 +238,7 @@ fun SettingsDialog(
                     SettingToggleRow(
                         title = "Random Altitude",
                         description = "Range 0 to 75 meters (default min 0, max 15)",
-                        icon = Icons.Default.Terrain,
+                        icon = MapIcons.Terrain,
                         checked = isRandomAltitude,
                         onCheckedChange = {
                             isRandomAltitude = it
@@ -286,7 +274,7 @@ fun SettingsDialog(
                     SettingToggleRow(
                         title = "Random Bearing",
                         description = "Randomize heading angle across 0°–360°",
-                        icon = Icons.Default.CompassCalibration,
+                        icon = MapIcons.CompassCalibration,
                         checked = isRandomBearing,
                         onCheckedChange = {
                             isRandomBearing = it
@@ -300,7 +288,7 @@ fun SettingsDialog(
                     SettingToggleRow(
                         title = "Random Speed",
                         description = "Range 0 to 55 km/h (default min 1, max 5)",
-                        icon = Icons.Default.Speed,
+                        icon = MapIcons.Speed,
                         checked = isRandomSpeed,
                         onCheckedChange = {
                             isRandomSpeed = it
@@ -342,7 +330,7 @@ fun SettingsDialog(
                     ) {
                         Row(verticalAlignment = Alignment.CenterVertically) {
                             Icon(
-                                imageVector = Icons.Default.Timer,
+                                imageVector = MapIcons.Timer,
                                 contentDescription = null,
                                 tint = MaterialTheme.colorScheme.primary,
                                 modifier = Modifier.size(20.dp)
@@ -375,7 +363,7 @@ fun SettingsDialog(
                                 commitSettings()
                             },
                             placeholder = "Enter refresh time ms (0–1300)",
-                            icon = Icons.Default.Refresh,
+                            icon = MapIcons.Refresh,
                             keyboardOptions = KeyboardOptions(keyboardType = KeyboardType.Number)
                         )
                     }
@@ -392,7 +380,7 @@ fun SettingsDialog(
                     ) {
                         Row(verticalAlignment = Alignment.CenterVertically) {
                             Icon(
-                                imageVector = Icons.Default.Layers,
+                                imageVector = MapIcons.Layers,
                                 contentDescription = null,
                                 tint = MaterialTheme.colorScheme.primary,
                                 modifier = Modifier.size(20.dp)
@@ -404,9 +392,11 @@ fun SettingsDialog(
                             )
                         }
 
-                        FlowRow(
+                        Row(
                             horizontalArrangement = Arrangement.spacedBy(8.dp),
-                            modifier = Modifier.fillMaxWidth()
+                            modifier = Modifier
+                                .fillMaxWidth()
+                                .horizontalScroll(rememberScrollState())
                         ) {
                             MapStyleMode.entries.forEach { style ->
                                 val isSelected = settings.mapStyles.contains(style)
@@ -417,7 +407,7 @@ fun SettingsDialog(
                                     leadingIcon = if (isSelected) {
                                         {
                                             Icon(
-                                                imageVector = Icons.Default.Check,
+                                                imageVector = MapIcons.Check,
                                                 contentDescription = null,
                                                 modifier = Modifier.size(16.dp)
                                             )

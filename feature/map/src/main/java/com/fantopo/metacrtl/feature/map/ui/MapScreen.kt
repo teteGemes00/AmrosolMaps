@@ -6,6 +6,7 @@ import androidx.compose.animation.slideOutVertically
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.padding
+import androidx.compose.material3.ExperimentalMaterial3Api
 import androidx.compose.material3.Scaffold
 import androidx.compose.material3.SnackbarHost
 import androidx.compose.material3.SnackbarHostState
@@ -26,6 +27,7 @@ import com.fantopo.metacrtl.feature.map.model.DialogType
 import com.fantopo.metacrtl.feature.map.overlay.FloatingOverlayWidget
 import com.fantopo.metacrtl.feature.map.viewmodel.MapViewModel
 
+@OptIn(ExperimentalMaterial3Api::class)
 @Composable
 fun MapScreen(
     viewModel: MapViewModel,

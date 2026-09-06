@@ -8,15 +8,6 @@ import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.size
 import androidx.compose.foundation.shape.CircleShape
 import androidx.compose.foundation.shape.RoundedCornerShape
-import androidx.compose.material.icons.Icons
-import androidx.compose.material.icons.filled.Delete
-import androidx.compose.material.icons.filled.Fullscreen
-import androidx.compose.material.icons.filled.FullscreenExit
-import androidx.compose.material.icons.filled.MyLocation
-import androidx.compose.material.icons.filled.PlayArrow
-import androidx.compose.material.icons.filled.Stop
-import androidx.compose.material.icons.filled.ZoomIn
-import androidx.compose.material.icons.filled.ZoomOut
 import androidx.compose.material3.FloatingActionButton
 import androidx.compose.material3.FloatingActionButtonDefaults
 import androidx.compose.material3.Icon
@@ -57,7 +48,7 @@ fun InAppControlsOverlay(
                 .size(56.dp)
         ) {
             Icon(
-                imageVector = if (isGpsActive) Icons.Default.Stop else Icons.Default.PlayArrow,
+                imageVector = if (isGpsActive) MapIcons.Stop else MapIcons.PlayArrow,
                 contentDescription = if (isGpsActive) "Stop Fake GPS" else "Start Fake GPS",
                 modifier = Modifier.size(32.dp)
             )
@@ -81,7 +72,7 @@ fun InAppControlsOverlay(
                 elevation = FloatingActionButtonDefaults.elevation(4.dp)
             ) {
                 Icon(
-                    imageVector = Icons.Default.MyLocation,
+                    imageVector = MapIcons.MyLocation,
                     contentDescription = "Center Location"
                 )
             }
@@ -95,7 +86,7 @@ fun InAppControlsOverlay(
                 elevation = FloatingActionButtonDefaults.elevation(4.dp)
             ) {
                 Icon(
-                    imageVector = if (zoomLevel > 1.2f) Icons.Default.ZoomOut else Icons.Default.ZoomIn,
+                    imageVector = if (zoomLevel > 1.2f) MapIcons.ZoomOut else MapIcons.ZoomIn,
                     contentDescription = "Toggle Zoom"
                 )
             }
@@ -109,7 +100,7 @@ fun InAppControlsOverlay(
                 elevation = FloatingActionButtonDefaults.elevation(4.dp)
             ) {
                 Icon(
-                    imageVector = if (isFullScreen) Icons.Default.FullscreenExit else Icons.Default.Fullscreen,
+                    imageVector = if (isFullScreen) MapIcons.FullscreenExit else MapIcons.Fullscreen,
                     contentDescription = "Toggle Fullscreen"
                 )
             }
@@ -123,7 +114,7 @@ fun InAppControlsOverlay(
                 elevation = FloatingActionButtonDefaults.elevation(4.dp)
             ) {
                 Icon(
-                    imageVector = Icons.Default.Delete,
+                    imageVector = MapIcons.Delete,
                     contentDescription = "Delete / Reset Pin"
                 )
             }

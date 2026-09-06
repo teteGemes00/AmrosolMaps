@@ -10,11 +10,6 @@ import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.width
 import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.foundation.text.KeyboardOptions
-import androidx.compose.material.icons.Icons
-import androidx.compose.material.icons.filled.EditLocation
-import androidx.compose.material.icons.filled.Explore
-import androidx.compose.material.icons.filled.LocationOn
-import androidx.compose.material.icons.filled.Navigation
 import androidx.compose.material3.Button
 import androidx.compose.material3.Card
 import androidx.compose.material3.CardDefaults
@@ -34,6 +29,7 @@ import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import androidx.compose.ui.window.Dialog
 import com.fantopo.metacrtl.core.model.LocationPoint
+import com.fantopo.metacrtl.feature.map.ui.MapIcons
 import com.fantopo.metacrtl.feature.map.ui.NoBorderTextField
 import java.util.Locale
 
@@ -79,7 +75,7 @@ fun SaveLocationDialog(
                     value = latText,
                     onValueChange = { latText = it },
                     placeholder = "Latitude (e.g. -6.2088)",
-                    icon = Icons.Default.Navigation,
+                    icon = MapIcons.Navigation,
                     keyboardOptions = KeyboardOptions(keyboardType = KeyboardType.Decimal)
                 )
 
@@ -88,7 +84,7 @@ fun SaveLocationDialog(
                     value = lngText,
                     onValueChange = { lngText = it },
                     placeholder = "Longitude (e.g. 106.8456)",
-                    icon = Icons.Default.Explore,
+                    icon = MapIcons.Explore,
                     keyboardOptions = KeyboardOptions(keyboardType = KeyboardType.Decimal)
                 )
 
@@ -97,7 +93,7 @@ fun SaveLocationDialog(
                     value = nameText,
                     onValueChange = { nameText = it },
                     placeholder = "Location Name (e.g. Office / Favorite Spot)",
-                    icon = Icons.Default.EditLocation,
+                    icon = MapIcons.EditLocation,
                     keyboardOptions = KeyboardOptions(keyboardType = KeyboardType.Text)
                 )
 

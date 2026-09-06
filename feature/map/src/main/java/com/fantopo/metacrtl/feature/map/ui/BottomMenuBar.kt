@@ -10,12 +10,6 @@ import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.size
 import androidx.compose.foundation.shape.RoundedCornerShape
-import androidx.compose.material.icons.Icons
-import androidx.compose.material.icons.filled.Bookmark
-import androidx.compose.material.icons.filled.ElectricRickshaw
-import androidx.compose.material.icons.filled.Favorite
-import androidx.compose.material.icons.filled.History
-import androidx.compose.material.icons.filled.Settings
 import androidx.compose.material3.Card
 import androidx.compose.material3.CardDefaults
 import androidx.compose.material3.Icon
@@ -55,31 +49,31 @@ fun BottomMenuBar(
         ) {
             MenuItem(
                 title = "Save",
-                icon = Icons.Default.Bookmark,
+                icon = MapIcons.Bookmark,
                 isSelected = activeDialog == DialogType.SAVE,
                 onClick = { onOpenDialog(DialogType.SAVE) }
             )
             MenuItem(
                 title = "Favorite",
-                icon = Icons.Default.Favorite,
+                icon = MapIcons.Favorite,
                 isSelected = activeDialog == DialogType.FAVORITE,
                 onClick = { onOpenDialog(DialogType.FAVORITE) }
             )
             MenuItem(
                 title = "Histori",
-                icon = Icons.Default.History,
+                icon = MapIcons.History,
                 isSelected = activeDialog == DialogType.HISTORY,
                 onClick = { onOpenDialog(DialogType.HISTORY) }
             )
             MenuItem(
                 title = "Setting",
-                icon = Icons.Default.Settings,
+                icon = MapIcons.Settings,
                 isSelected = activeDialog == DialogType.SETTINGS,
                 onClick = { onOpenDialog(DialogType.SETTINGS) }
             )
             MenuItem(
                 title = "Provider",
-                icon = Icons.Default.ElectricRickshaw,
+                icon = MapIcons.ElectricRickshaw,
                 isSelected = activeDialog == DialogType.PROVIDER_SERVICE,
                 onClick = { onOpenDialog(DialogType.PROVIDER_SERVICE) }
             )

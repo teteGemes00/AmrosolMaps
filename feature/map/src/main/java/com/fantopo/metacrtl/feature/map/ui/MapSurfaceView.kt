@@ -12,9 +12,6 @@ import androidx.compose.foundation.gestures.detectTapGestures
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.padding
-import androidx.compose.material.icons.Icons
-import androidx.compose.material.icons.filled.LocationOn
-import androidx.compose.material.icons.filled.MyLocation
 import androidx.compose.material3.Card
 import androidx.compose.material3.CardDefaults
 import androidx.compose.material3.Icon
@@ -63,15 +60,14 @@ fun MapSurfaceView(
     var panOffsetX by remember { mutableStateOf(0f) }
     var panOffsetY by remember { mutableStateOf(0f) }
 
-    val infiniteTransition = rememberInfiniteTransition(label = "pulse")
+    val infiniteTransition = rememberInfiniteTransition()
     val pulseRadius by infiniteTransition.animateFloat(
         initialValue = 20f,
         targetValue = 60f,
         animationSpec = infiniteRepeatable(
             animation = tween(1200, easing = FastOutSlowInEasing),
             repeatMode = RepeatMode.Restart
-        ),
-        label = "radius"
+        )
     )
     val pulseAlpha by infiniteTransition.animateFloat(
         initialValue = 0.8f,
@@ -79,8 +75,7 @@ fun MapSurfaceView(
         animationSpec = infiniteRepeatable(
             animation = tween(1200, easing = FastOutSlowInEasing),
             repeatMode = RepeatMode.Restart
-        ),
-        label = "alpha"
+        )
     )
 
     Box(

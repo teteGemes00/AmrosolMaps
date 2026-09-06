@@ -14,13 +14,6 @@ import androidx.compose.foundation.layout.width
 import androidx.compose.foundation.lazy.LazyColumn
 import androidx.compose.foundation.lazy.items
 import androidx.compose.foundation.shape.RoundedCornerShape
-import androidx.compose.material.icons.Icons
-import androidx.compose.material.icons.filled.BookmarkAdd
-import androidx.compose.material.icons.filled.ClearAll
-import androidx.compose.material.icons.filled.Delete
-import androidx.compose.material.icons.filled.History
-import androidx.compose.material.icons.filled.NearMe
-import androidx.compose.material.icons.filled.Search
 import androidx.compose.material3.Card
 import androidx.compose.material3.CardDefaults
 import androidx.compose.material3.Icon
@@ -41,6 +34,7 @@ import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import androidx.compose.ui.window.Dialog
 import com.fantopo.metacrtl.core.model.HistoryEntry
+import com.fantopo.metacrtl.feature.map.ui.MapIcons
 import com.fantopo.metacrtl.feature.map.ui.NoBorderTextField
 
 @Composable
@@ -79,7 +73,7 @@ fun HistoryLocationDialog(
                 ) {
                     Row(verticalAlignment = Alignment.CenterVertically) {
                         Icon(
-                            imageVector = Icons.Default.History,
+                            imageVector = MapIcons.History,
                             contentDescription = null,
                             tint = MaterialTheme.colorScheme.primary,
                             modifier = Modifier.size(24.dp)
@@ -97,7 +91,7 @@ fun HistoryLocationDialog(
                     if (historyEntries.isNotEmpty()) {
                         IconButton(onClick = onClearAllHistory) {
                             Icon(
-                                imageVector = Icons.Default.ClearAll,
+                                imageVector = MapIcons.ClearAll,
                                 contentDescription = "Clear all history",
                                 tint = MaterialTheme.colorScheme.error
                             )
@@ -112,7 +106,7 @@ fun HistoryLocationDialog(
                     value = searchQuery,
                     onValueChange = { searchQuery = it },
                     placeholder = "Search history...",
-                    icon = Icons.Default.Search
+                    icon = MapIcons.Search
                 )
 
                 Spacer(modifier = Modifier.height(10.dp))
@@ -223,7 +217,7 @@ private fun HistoryCardItem(
             ) {
                 IconButton(onClick = onSave, modifier = Modifier.size(36.dp)) {
                     Icon(
-                        imageVector = Icons.Default.BookmarkAdd,
+                        imageVector = MapIcons.BookmarkAdd,
                         contentDescription = "Save to Saved Locations",
                         tint = MaterialTheme.colorScheme.primary,
                         modifier = Modifier.size(19.dp)
@@ -232,7 +226,7 @@ private fun HistoryCardItem(
 
                 IconButton(onClick = onMove, modifier = Modifier.size(36.dp)) {
                     Icon(
-                        imageVector = Icons.Default.NearMe,
+                        imageVector = MapIcons.NearMe,
                         contentDescription = "Move to Coordinate",
                         tint = Color(0xFF00C853),
                         modifier = Modifier.size(20.dp)
@@ -241,7 +235,7 @@ private fun HistoryCardItem(
 
                 IconButton(onClick = onDelete, modifier = Modifier.size(36.dp)) {
                     Icon(
-                        imageVector = Icons.Default.Delete,
+                        imageVector = MapIcons.Delete,
                         contentDescription = "Delete History Entry",
                         tint = MaterialTheme.colorScheme.error,
                         modifier = Modifier.size(18.dp)

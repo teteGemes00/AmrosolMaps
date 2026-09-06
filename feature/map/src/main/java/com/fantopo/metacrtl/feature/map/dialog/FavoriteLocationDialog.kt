@@ -15,13 +15,6 @@ import androidx.compose.foundation.layout.width
 import androidx.compose.foundation.lazy.LazyColumn
 import androidx.compose.foundation.lazy.items
 import androidx.compose.foundation.shape.RoundedCornerShape
-import androidx.compose.material.icons.Icons
-import androidx.compose.material.icons.filled.Add
-import androidx.compose.material.icons.filled.Delete
-import androidx.compose.material.icons.filled.Edit
-import androidx.compose.material.icons.filled.Favorite
-import androidx.compose.material.icons.filled.NearMe
-import androidx.compose.material.icons.filled.Search
 import androidx.compose.material3.Button
 import androidx.compose.material3.Card
 import androidx.compose.material3.CardDefaults
@@ -45,6 +38,7 @@ import androidx.compose.ui.unit.sp
 import androidx.compose.ui.window.Dialog
 import com.fantopo.metacrtl.core.model.FavoriteLocation
 import com.fantopo.metacrtl.core.model.LocationPoint
+import com.fantopo.metacrtl.feature.map.ui.MapIcons
 import com.fantopo.metacrtl.feature.map.ui.NoBorderTextField
 import java.util.Locale
 
@@ -87,7 +81,7 @@ fun FavoriteLocationDialog(
                 ) {
                     Row(verticalAlignment = Alignment.CenterVertically) {
                         Icon(
-                            imageVector = Icons.Default.Favorite,
+                            imageVector = MapIcons.Favorite,
                             contentDescription = null,
                             tint = Color(0xFFFF4081),
                             modifier = Modifier.size(24.dp)
@@ -103,7 +97,7 @@ fun FavoriteLocationDialog(
                     }
                     IconButton(onClick = { isAddingNew = !isAddingNew }) {
                         Icon(
-                            imageVector = Icons.Default.Add,
+                            imageVector = MapIcons.Add,
                             contentDescription = "Add Current to Favorite",
                             tint = MaterialTheme.colorScheme.primary
                         )
@@ -117,7 +111,7 @@ fun FavoriteLocationDialog(
                     value = searchQuery,
                     onValueChange = { searchQuery = it },
                     placeholder = "Search favorites...",
-                    icon = Icons.Default.Search
+                    icon = MapIcons.Search
                 )
 
                 // Quick add current location view
@@ -249,7 +243,7 @@ private fun FavoriteCardItem(
             ) {
                 IconButton(onClick = onEdit, modifier = Modifier.size(36.dp)) {
                     Icon(
-                        imageVector = Icons.Default.Edit,
+                        imageVector = MapIcons.Edit,
                         contentDescription = "Edit Favorite",
                         tint = MaterialTheme.colorScheme.primary,
                         modifier = Modifier.size(18.dp)
@@ -258,7 +252,7 @@ private fun FavoriteCardItem(
 
                 IconButton(onClick = onMove, modifier = Modifier.size(36.dp)) {
                     Icon(
-                        imageVector = Icons.Default.NearMe,
+                        imageVector = MapIcons.NearMe,
                         contentDescription = "Move to Coordinate",
                         tint = Color(0xFF00C853),
                         modifier = Modifier.size(20.dp)
@@ -267,7 +261,7 @@ private fun FavoriteCardItem(
 
                 IconButton(onClick = onDelete, modifier = Modifier.size(36.dp)) {
                     Icon(
-                        imageVector = Icons.Default.Delete,
+                        imageVector = MapIcons.Delete,
                         contentDescription = "Delete Favorite",
                         tint = MaterialTheme.colorScheme.error,
                         modifier = Modifier.size(18.dp)
