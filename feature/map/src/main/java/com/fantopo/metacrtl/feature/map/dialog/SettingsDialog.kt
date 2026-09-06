@@ -34,9 +34,10 @@ import androidx.compose.material.icons.filled.Terrain
 import androidx.compose.material.icons.filled.Timer
 import androidx.compose.material3.Card
 import androidx.compose.material3.CardDefaults
+import androidx.compose.material3.Divider
+import androidx.compose.material3.ExperimentalMaterial3Api
 import androidx.compose.material3.FilterChip
 import androidx.compose.material3.FilterChipDefaults
-import androidx.compose.material3.HorizontalDivider
 import androidx.compose.material3.Icon
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.RangeSlider
@@ -64,7 +65,7 @@ import com.fantopo.metacrtl.core.model.MapStyleMode
 import com.fantopo.metacrtl.feature.map.ui.NoBorderTextField
 import java.util.Locale
 
-@OptIn(ExperimentalLayoutApi::class)
+@OptIn(ExperimentalLayoutApi::class, ExperimentalMaterial3Api::class)
 @Composable
 fun SettingsDialog(
     settings: AppSettings,
@@ -179,7 +180,7 @@ fun SettingsDialog(
                         }
                     )
 
-                    HorizontalDivider(modifier = Modifier.padding(vertical = 2.dp), color = MaterialTheme.colorScheme.outlineVariant.copy(alpha = 0.4f))
+                    Divider(modifier = Modifier.padding(vertical = 2.dp), color = MaterialTheme.colorScheme.outlineVariant.copy(alpha = 0.4f))
 
                     // 2) Fused mode toggle
                     SettingToggleRow(
@@ -193,7 +194,7 @@ fun SettingsDialog(
                         }
                     )
 
-                    HorizontalDivider(modifier = Modifier.padding(vertical = 2.dp), color = MaterialTheme.colorScheme.outlineVariant.copy(alpha = 0.4f))
+                    Divider(modifier = Modifier.padding(vertical = 2.dp), color = MaterialTheme.colorScheme.outlineVariant.copy(alpha = 0.4f))
 
                     // 3) Random Coordinate toggle
                     SettingToggleRow(
@@ -207,7 +208,7 @@ fun SettingsDialog(
                         }
                     )
 
-                    HorizontalDivider(modifier = Modifier.padding(vertical = 2.dp), color = MaterialTheme.colorScheme.outlineVariant.copy(alpha = 0.4f))
+                    Divider(modifier = Modifier.padding(vertical = 2.dp), color = MaterialTheme.colorScheme.outlineVariant.copy(alpha = 0.4f))
 
                     // 4) Random Accuracy toggle & RangeSlider (0-5, default 5)
                     SettingToggleRow(
@@ -243,7 +244,7 @@ fun SettingsDialog(
                         }
                     }
 
-                    HorizontalDivider(modifier = Modifier.padding(vertical = 2.dp), color = MaterialTheme.colorScheme.outlineVariant.copy(alpha = 0.4f))
+                    Divider(modifier = Modifier.padding(vertical = 2.dp), color = MaterialTheme.colorScheme.outlineVariant.copy(alpha = 0.4f))
 
                     // 5) Random Altitude toggle & RangeSlider (0-75, default 0-15)
                     SettingToggleRow(
@@ -279,7 +280,7 @@ fun SettingsDialog(
                         }
                     }
 
-                    HorizontalDivider(modifier = Modifier.padding(vertical = 2.dp), color = MaterialTheme.colorScheme.outlineVariant.copy(alpha = 0.4f))
+                    Divider(modifier = Modifier.padding(vertical = 2.dp), color = MaterialTheme.colorScheme.outlineVariant.copy(alpha = 0.4f))
 
                     // 6) Random Bearing (0°-360°)
                     SettingToggleRow(
@@ -293,7 +294,7 @@ fun SettingsDialog(
                         }
                     )
 
-                    HorizontalDivider(modifier = Modifier.padding(vertical = 2.dp), color = MaterialTheme.colorScheme.outlineVariant.copy(alpha = 0.4f))
+                    Divider(modifier = Modifier.padding(vertical = 2.dp), color = MaterialTheme.colorScheme.outlineVariant.copy(alpha = 0.4f))
 
                     // 7) Random Speed toggle & RangeSlider (0-55, default 1-5)
                     SettingToggleRow(
@@ -329,7 +330,7 @@ fun SettingsDialog(
                         }
                     }
 
-                    HorizontalDivider(modifier = Modifier.padding(vertical = 2.dp), color = MaterialTheme.colorScheme.outlineVariant.copy(alpha = 0.4f))
+                    Divider(modifier = Modifier.padding(vertical = 2.dp), color = MaterialTheme.colorScheme.outlineVariant.copy(alpha = 0.4f))
 
                     // 8) Refresh time: Slider (0-1300) + text input without border line
                     Column(
@@ -379,7 +380,7 @@ fun SettingsDialog(
                         )
                     }
 
-                    HorizontalDivider(modifier = Modifier.padding(vertical = 2.dp), color = MaterialTheme.colorScheme.outlineVariant.copy(alpha = 0.4f))
+                    Divider(modifier = Modifier.padding(vertical = 2.dp), color = MaterialTheme.colorScheme.outlineVariant.copy(alpha = 0.4f))
 
                     // 9) Maps Style (hybrid, night, traffic) combinable
                     Column(

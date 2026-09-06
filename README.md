@@ -8,13 +8,14 @@ A fake GPS Android application built with **Jetpack Compose Material 3**, **Kotl
 
 - **App Name**: Fantopo Maps
 - **Package Name**: `com.fantopo.metacrtl`
-- **Language**: Kotlin 2.1.0
-- **Build System**: Gradle 8.11.1 (Kotlin DSL - KTS) with Version Catalog (`libs.versions.toml`)
+- **Language**: Kotlin 1.9.22
+- **Build System**: Gradle Kotlin DSL (KTS) with Version Catalog (`libs.versions.toml`)
+- **IDE Compatibility**: Android Studio & CodeOnTheGo (Gradle 8.14.3 / 8.11.0, AGP 8.11.0)
 - **JDK**: Java 17
 - **SDK Configuration**:
   - `minSdk`: 28 (Android 9.0 Pie)
-  - `targetSdk`: 37
-  - `compileSdk`: 37
+  - `targetSdk`: 36
+  - `compileSdk`: 36
 - **UI Toolkit**: Jetpack Compose with Material 3
 
 ---
@@ -111,10 +112,17 @@ AmrosolMaps/
 
 ### Prerequisites
 - JDK 17
-- Android SDK with Platform 37 (`compileSdk = 37`, `minSdk = 28`)
-- Android Studio Ladybug / Meerkat or Gradle CLI
+- Android SDK with Platform 36 (`compileSdk = 36`, `minSdk = 28`)
+- Android Studio Ladybug / Meerkat or CodeOnTheGo (on Android device)
+- AGP 8.11.0, Kotlin 1.9.22, Compose Compiler Extension 1.5.10
 
-### Build Commands
+### Build in CodeOnTheGo (on Android)
+The project is pre-configured with resolution strategies and packaging excludes/merges specifically tailored for on-device builds in CodeOnTheGo / AndroidIDE:
+- `configurations.all` resolution strategies force Kotlin stdlib 1.9.22 and required AndroidX versions.
+- `packaging.resources` rules resolve file conflict issues when compiling on local offline Maven repositories.
+- `release.properties` support for seamless signing during release builds.
+
+### Build Commands (CLI / Terminal)
 ```bash
 # Build debug APK
 ./gradlew assembleDebug
